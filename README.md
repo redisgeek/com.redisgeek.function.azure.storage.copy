@@ -1,0 +1,1 @@
+# com.redisgeek.function.azure.storage.copy

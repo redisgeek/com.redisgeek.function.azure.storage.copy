@@ -1,15 +1,14 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
+# com.redisgeek.function.azure.storage.copy
 
 <p align="center">
     <img src="images/redis-icon.svg" alt="Logo" width="80" height="80">
 </p>
 
-# com.redisgeek.function.azure.storage.copy
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 ### About The Project
 

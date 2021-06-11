@@ -12,9 +12,7 @@
 
 ### About The Project
 
-This solution can be used to provide DR where active-active is not yet available.
-The solution can also provide DR for RediSearch, RedisTimeSeries and RedisBloom, modules in ACRE.
-This solution could also serve as a base for use cases besides DR, like testing.
+A simple function to copy a blob from a source container to a target container.
 
 ### Built With
 

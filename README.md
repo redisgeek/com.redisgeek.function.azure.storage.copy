@@ -1,9 +1,5 @@
 # com.redisgeek.function.azure.storage.copy
 
-<p align="center">
-    <img src="images/redis-icon.svg" alt="Logo" width="80" height="80">
-</p>
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -36,9 +32,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Usage
 
-<p align="center">
-    <img src="images/v1.png" alt="architecture diagram" height="25%" width="25%">
-</p>
+TBD
 
 ### Roadmap
 

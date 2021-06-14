@@ -36,7 +36,6 @@ public class CopyBlob implements Function<Mono<Optional<String>>, Mono<String>> 
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
-            String blobSasUri = String.format("https://%s.blob.core.windows.net/%s%s", storageName, storageContainer, blobSas);
 
             return Mono.just("Export Complete");
         } catch (Exception e) {

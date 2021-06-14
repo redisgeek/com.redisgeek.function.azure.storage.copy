@@ -15,19 +15,8 @@ public class CopyBlobHandler extends FunctionInvoker<Optional<String>, String> {
     public void run(
             @BlobTrigger(name = "file",
                     dataType = "binary",
-                    path = "myblob/{name}") byte[] content,
-            @BindingName("name") String filename,
-            final ExecutionContext context
-    ) {
-        context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-    }
-
-    @FunctionName("blobprocessor")
-    public void run(
-            @BlobTrigger(name = "file",
-                    dataType = "binary",
-                    path = "myblob/{name}",
-                    connection = "MyStorageAccountAppSetting") byte[] content,
+                    path = "primaryzvfy/{name}",
+                    connection = "AzureWebJobsStorage") byte[] content,
             @BindingName("name") String filename,
             final ExecutionContext context
     ) {

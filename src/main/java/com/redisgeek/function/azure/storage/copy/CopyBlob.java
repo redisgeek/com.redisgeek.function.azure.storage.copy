@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Component
-public class CopyBlob implements Function<Mono<String>, Mono<String>> {
+public class CopyBlob implements Function<Mono<Optional<String>>, Mono<String>> {
 
     @Value("${blobSas}")
     private String blobSas;
@@ -27,7 +27,7 @@ public class CopyBlob implements Function<Mono<String>, Mono<String>> {
     @Value("${sourceContainerName}")
     private String sourceContainer;
 
-    public Mono<String> apply(Mono<String> request) {
+    public Mono<String> apply(Mono<Optional<String>> request) {
         try {
             TokenCredential credential = new EnvironmentCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)

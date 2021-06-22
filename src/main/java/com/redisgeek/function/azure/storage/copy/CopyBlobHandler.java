@@ -15,7 +15,7 @@ public class CopyBlobHandler extends FunctionInvoker<Optional<String>, String> {
     public void run(
             @BlobTrigger(name = "file",
                     dataType = "binary",
-                    path = "primaryeohh/{name}.rdb.gz",
+                    path = "redisgeek-source/{name}.rdb.gz",
                     connection = "AzureWebJobsStorage") byte[] content,
             @BindingName("name") Optional<String> filename,
             final ExecutionContext context

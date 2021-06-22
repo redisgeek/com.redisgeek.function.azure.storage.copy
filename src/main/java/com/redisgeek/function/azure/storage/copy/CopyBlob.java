@@ -13,10 +13,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Component
-public class CopyBlob implements Function<Mono<Optional<String>>, Mono<String>> {
-
-    @Value("${rg_name}")
-    private String rg_name;
+public class CopyBlob implements Function<Mono<String>, Mono<String>> {
 
     @Value("${blobSas}")
     private String blobSas;
@@ -24,20 +21,21 @@ public class CopyBlob implements Function<Mono<Optional<String>>, Mono<String>> 
     @Value("${storageKey}")
     private String storageKey;
 
-    @Value("${storageName}")
+    @Value("${storageAccountName}")
     private String storageName;
 
-    @Value("${storageContainerName}")
-    private String storageContainer;
+    @Value("${sourceContainerName}")
+    private String sourceContainer;
 
-    public Mono<String> apply(Mono<Optional<String>> request) {
+    public Mono<String> apply(Mono<String> request) {
         try {
             TokenCredential credential = new EnvironmentCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
-
-            return Mono.just("Export Complete");
+            context.getLogger().info("Copy blob to target container");
+            context.getLogger().info("Delete blob from source container");
+            return Mono.just("Copy Complete");
         } catch (Exception e) {
             return Mono.just(e.getMessage());
         }

@@ -9,17 +9,18 @@ import java.util.Optional;
 /**
  * Azure Functions with HTTP Trigger.
  */
-public class CopyBlobHandler extends FunctionInvoker<Optional<String>, String> {
+public class CopyBlobHandler extends FunctionInvoker<String, String> {
 
     @FunctionName("CopyBlob")
     public void run(
             @BlobTrigger(name = "file",
                     dataType = "binary",
-                    path = "primaryzvfy/{name}",
+                    path = "primaryeohh/{name}.rdb.gz",
                     connection = "AzureWebJobsStorage") byte[] content,
             @BindingName("name") String filename,
             final ExecutionContext context
     ) {
         context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+        handleRequest(filename, context);
     }
 }

@@ -29,6 +29,7 @@ public class CopyBlob implements Function<byte[], String> {
                     .blobName(targetBlobFilename)
                     .buildClient();
             try {
+                blobClient.delete();
                 blobClient.upload(BinaryData.fromBytes(blob));
             } catch (Exception e) {
                 System.err.println(e.getMessage());

@@ -55,4 +55,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-shield]: https://img.shields.io/github/issues/redisgeek/com.redisgeek.function.azure.storage.copy.svg?style=for-the-badge
 [issues-url]: https://github.com/redisgeek/com.redisgeek.function.azure.storage.copy/issues
 [license-shield]: https://img.shields.io/github/license/redisgeek/com.redisgeek.function.azure.storage.copy.svg?style=for-the-badge
-[license-url]: https://github.com/redisgeek/com.redisgeek.function.azure.storage.copy/blob/master/LICENSE.txt
+[license-url]: https://github.com/redisgeek/com.redisgeek.function.azure.storage.copy/blob/master/LICENSE

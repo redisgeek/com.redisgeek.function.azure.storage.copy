@@ -33,8 +33,6 @@ public class CopyBlob implements Function<Mono<String>, Mono<String>> {
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
             AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
-            context.getLogger().info("Copy blob to target container");
-            context.getLogger().info("Delete blob from source container");
             return Mono.just("Copy Complete");
         } catch (Exception e) {
             return Mono.just(e.getMessage());

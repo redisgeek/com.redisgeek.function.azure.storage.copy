@@ -21,6 +21,8 @@ public class CopyBlobHandler extends FunctionInvoker<String, String> {
             final ExecutionContext context
     ) {
         context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+        context.getLogger().info("Copy blob to target container");
+        context.getLogger().info("Delete blob from source container");
         handleRequest(filename, context);
     }
 }

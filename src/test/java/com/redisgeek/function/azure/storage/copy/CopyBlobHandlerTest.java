@@ -11,10 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CopyBlobHandlerTest {
 
-    public void test() {
-        Mono<String> result = new CopyBlob().apply(Mono.just(Optional.empty()));
-        assertThat(result.block()).isNotEmpty();
-    }
+//    public void test() {
+//        Mono<String> result = new CopyBlob().apply(Mono.just(Optional.empty()));
+//        assertThat(result.block()).isNotEmpty();
+//    }
 
     public void start() {
         FunctionInvoker<String, String> handler = new FunctionInvoker<>(CopyBlob.class);

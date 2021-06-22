@@ -1,41 +1,41 @@
 package com.redisgeek.function.azure.storage.copy;
 
-import com.azure.core.credential.TokenCredential;
-import com.azure.core.management.AzureEnvironment;
-import com.azure.core.management.profile.AzureProfile;
-import com.azure.identity.AzureAuthorityHosts;
-import com.azure.identity.EnvironmentCredentialBuilder;
+import com.azure.core.util.BinaryData;
+import com.azure.storage.blob.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Mono;
 
-import java.util.Optional;
 import java.util.function.Function;
 
 @Component
-public class CopyBlob implements Function<Mono<Optional<String>>, Mono<String>> {
+public class CopyBlob implements Function<byte[], String> {
 
-    @Value("${blobSas}")
-    private String blobSas;
+    @Value("${targetBlobSas}")
+    private String targetBlobSas;
 
-    @Value("${storageKey}")
-    private String storageKey;
+    @Value("${targetStorageAccountUrl}")
+    private String targetStorageAccountUrl;
 
-    @Value("${storageAccountName}")
-    private String storageName;
+    static String targetContainerName = "redisgeek-target";
 
-    @Value("${sourceContainerName}")
-    private String sourceContainer;
+    static String targetBlobFilename = "export.rdb.gz";
 
-    public Mono<String> apply(Mono<Optional<String>> request) {
+    public String apply(byte[] blob) {
         try {
-            TokenCredential credential = new EnvironmentCredentialBuilder()
-                    .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
-                    .build();
-            AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
-            return Mono.just("Copy Complete");
+            BlobClient blobClient = new BlobClientBuilder()
+                    .endpoint(targetStorageAccountUrl)
+                    .sasToken(targetBlobSas)
+                    .containerName(targetContainerName)
+                    .blobName(targetBlobFilename)
+                    .buildClient();
+            try {
+                blobClient.upload(BinaryData.fromBytes(blob));
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+            return "Blob Copied";
         } catch (Exception e) {
-            return Mono.just(e.getMessage());
+            return e.getMessage();
         }
     }
 }
